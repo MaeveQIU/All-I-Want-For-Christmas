@@ -2,7 +2,7 @@ using Xunit;
 
 namespace ChristmasLight.Test
 {
-    public class UnitTest1
+    public class LightTest
     {
         [Fact]
         void should_set_light_off_as_default()

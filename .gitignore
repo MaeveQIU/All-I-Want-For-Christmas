@@ -1,0 +1,6 @@
+.idea/
+bin/
+obj/
+out/
+*.sln.DotSettings.user
+*.csproj.user

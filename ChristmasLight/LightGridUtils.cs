@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChristmasLight
 {
@@ -22,5 +23,25 @@ namespace ChristmasLight
             return lightGrid;
         }
 
+        public static void TurnOnLight(int positionX, int positionY)
+        {
+            LightGrid.Where(x => x.PositionX == positionX && x.PositionY == positionY)
+                .ToList()
+                .ForEach(x => x.IsOn = true);
+        }
+        
+        public static void TurnOffLight(int positionX, int positionY)
+        {
+            LightGrid.Where(x => x.PositionX == positionX && x.PositionY == positionY)
+                .ToList()
+                .ForEach(x => x.IsOn = false);
+        }
+        
+        public static void ToggleLight(int positionX, int positionY)
+        {
+            LightGrid.Where(x => x.PositionX == positionX && x.PositionY == positionY)
+                .ToList()
+                .ForEach(x => x.IsOn = !x.IsOn);
+        }
     }
 }

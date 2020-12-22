@@ -66,10 +66,10 @@ namespace ChristmasLight.Test
         }
 
         [Fact]
-        void should_have_one_thousand_lights_on()
+        void should_have_one_thousand_lights_lit()
         {
             LightGridUtils.TurnOn((0, 0), (999, 0));
-            Assert.Equal(1000, LightGridUtils.CountLightsOnNumber());
+            Assert.Equal(1000, LightGridUtils.CountLitLights());
         }
         
     }

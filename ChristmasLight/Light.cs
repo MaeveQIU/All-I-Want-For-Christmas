@@ -1,17 +1,16 @@
+using System;
+
 namespace ChristmasLight
 {
     public class Light
     {
-        public Light(int positionX, int positionY, bool isOn = false)
+        public Light((int PositionX, int PositionY) coordinate, bool isOn = false)
         {
-            PositionX = positionX;
-            PositionY = positionY;
+            Coordinate = coordinate;
             IsOn = isOn;
         }
 
-        public int PositionX { get; set; }
-
-        public int PositionY { get; set; }
+        public (int PositionX, int PositionY) Coordinate { get; set; }
         
         public bool IsOn { get; set; }
 

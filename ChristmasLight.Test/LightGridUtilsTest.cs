@@ -17,17 +17,17 @@ namespace ChristmasLight.Test
         [Fact]
         void should_return_the_right_coordinate_for_four_corners()
         {
-           Assert.Equal(0, _lightGrid[0].PositionX);
-           Assert.Equal(0, _lightGrid[0].PositionY);
+           Assert.Equal(0, _lightGrid[0].Coordinate.PositionX);
+           Assert.Equal(0, _lightGrid[0].Coordinate.PositionY);
            
-           Assert.Equal(0, _lightGrid[999].PositionX);
-           Assert.Equal(999, _lightGrid[999].PositionY);
+           Assert.Equal(0, _lightGrid[999].Coordinate.PositionX);
+           Assert.Equal(999, _lightGrid[999].Coordinate.PositionY);
            
-           Assert.Equal(999, _lightGrid[_lightGrid.Count - 1000].PositionX);
-           Assert.Equal(0, _lightGrid[_lightGrid.Count - 1000].PositionY);
+           Assert.Equal(999, _lightGrid[_lightGrid.Count - 1000].Coordinate.PositionX);
+           Assert.Equal(0, _lightGrid[_lightGrid.Count - 1000].Coordinate.PositionY);
            
-           Assert.Equal(999, _lightGrid[_lightGrid.Count - 1].PositionX);
-           Assert.Equal(999, _lightGrid[_lightGrid.Count - 1].PositionY);
+           Assert.Equal(999, _lightGrid[_lightGrid.Count - 1].Coordinate.PositionX);
+           Assert.Equal(999, _lightGrid[_lightGrid.Count - 1].Coordinate.PositionY);
         }
 
         [Fact]

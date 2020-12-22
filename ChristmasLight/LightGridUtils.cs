@@ -23,25 +23,25 @@ namespace ChristmasLight
             return lightGrid;
         }
 
-        public static void TurnOnLight(int positionX, int positionY)
+        public static void TurnOn((int positionX, int positionY) coordinate)
         {
-            LightGrid.Where(x => x.Coordinate.PositionX == positionX && x.Coordinate.PositionY == positionY)
+            LightGrid.Where(x => x.Coordinate.PositionX == coordinate.positionX && x.Coordinate.PositionY == coordinate.positionY)
                 .ToList()
-                .ForEach(x => x.IsOn = true);
+                .ForEach(x => x.TurnOnLight());
         }
         
-        public static void TurnOffLight(int positionX, int positionY)
+        public static void TurnOff((int positionX, int positionY) coordinate)
         {
-            LightGrid.Where(x => x.Coordinate.PositionX == positionX && x.Coordinate.PositionY == positionY)
+            LightGrid.Where(x => x.Coordinate.PositionX == coordinate.positionX && x.Coordinate.PositionY == coordinate.positionY)
                 .ToList()
-                .ForEach(x => x.IsOn = false);
+                .ForEach(x => x.TurnOffLight());
         }
         
-        public static void ToggleLight(int positionX, int positionY)
+        public static void Toggle((int positionX, int positionY) coordinate)
         {
-            LightGrid.Where(x => x.Coordinate.PositionX == positionX && x.Coordinate.PositionY == positionY)
+            LightGrid.Where(x => x.Coordinate.PositionX == coordinate.positionX && x.Coordinate.PositionY == coordinate.positionX)
                 .ToList()
-                .ForEach(x => x.IsOn = !x.IsOn);
+                .ForEach(x => x.ToggleLight());
         }
     }
 }

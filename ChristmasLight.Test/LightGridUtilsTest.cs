@@ -33,20 +33,20 @@ namespace ChristmasLight.Test
         [Fact]
         void should_set_light_on_then_set_light_off()
         {
-            LightGridUtils.TurnOnLight(999, 999);
+            LightGridUtils.TurnOn((999, 999));
             Assert.True(_lightGrid[_lightGrid.Count - 1].IsOn);
             
-            LightGridUtils.TurnOffLight(999, 999);
+            LightGridUtils.TurnOff((999, 999));
             Assert.False(_lightGrid[_lightGrid.Count - 1].IsOn);
         }
         
         [Fact]
         void should_toggle_light_on_and_off()
         {
-            LightGridUtils.ToggleLight(999, 999);
+            LightGridUtils.Toggle((999, 999));
             Assert.True(_lightGrid[_lightGrid.Count - 1].IsOn);
             
-            LightGridUtils.ToggleLight(999, 999);
+            LightGridUtils.Toggle((999, 999));
             Assert.False(_lightGrid[_lightGrid.Count - 1].IsOn);
         }
         

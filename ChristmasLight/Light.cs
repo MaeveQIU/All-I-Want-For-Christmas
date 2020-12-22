@@ -14,5 +14,10 @@ namespace ChristmasLight
         
         public bool IsOn { get; set; }
 
+        public void TurnOnLight() => IsOn = true;
+
+        public void TurnOffLight() => IsOn = false;
+
+        public void ToggleLight() => IsOn = !IsOn;
     }
 }

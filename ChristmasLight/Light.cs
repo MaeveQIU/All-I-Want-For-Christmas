@@ -10,7 +10,7 @@ namespace ChristmasLight
             IsOn = isOn;
         }
 
-        public (int PositionX, int PositionY) Coordinate { get; set; }
+        public (int PositionX, int PositionY) Coordinate { get; }
         
         public bool IsOn { get; set; }
 

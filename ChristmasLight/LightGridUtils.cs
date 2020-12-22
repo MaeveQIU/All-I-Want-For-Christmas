@@ -6,7 +6,7 @@ namespace ChristmasLight
     public static class LightGridUtils
     {
         
-        public static List<Light> LightGrid { get; set; } = InitLightGrid();
+        public static List<Light> LightGrid { get; } = InitLightGrid();
 
         private static List<Light> InitLightGrid()
         {
@@ -15,7 +15,7 @@ namespace ChristmasLight
             {
                 for (var j = 0; j < 1000; j++)
                 {
-                    var light = new Light((i, j));
+                    var light = new Light((j, i));
                     lightGrid.Add(light);
                 }
             }
@@ -23,23 +23,26 @@ namespace ChristmasLight
             return lightGrid;
         }
 
-        public static void TurnOn((int positionX, int positionY) coordinate)
+        public static void TurnOn((int positionX, int positionY) coordinateStart, (int positionX, int positionY) coordinateEnd)
         {
-            LightGrid.Where(x => x.Coordinate.PositionX == coordinate.positionX && x.Coordinate.PositionY == coordinate.positionY)
+            LightGrid.Where(x => x.Coordinate.PositionX >= coordinateStart.positionX && x.Coordinate.PositionX <= coordinateEnd.positionX
+                                 && x.Coordinate.PositionY >= coordinateStart.positionY && x.Coordinate.PositionY <= coordinateEnd.positionY)
                 .ToList()
                 .ForEach(x => x.TurnOnLight());
         }
         
-        public static void TurnOff((int positionX, int positionY) coordinate)
+        public static void TurnOff((int positionX, int positionY) coordinateStart, (int positionX, int positionY) coordinateEnd)
         {
-            LightGrid.Where(x => x.Coordinate.PositionX == coordinate.positionX && x.Coordinate.PositionY == coordinate.positionY)
+            LightGrid.Where(x => x.Coordinate.PositionX >= coordinateStart.positionX && x.Coordinate.PositionX <= coordinateEnd.positionX
+                    && x.Coordinate.PositionY >= coordinateStart.positionY && x.Coordinate.PositionY <= coordinateEnd.positionY)
                 .ToList()
                 .ForEach(x => x.TurnOffLight());
         }
         
-        public static void Toggle((int positionX, int positionY) coordinate)
+        public static void Toggle((int positionX, int positionY) coordinateStart, (int positionX, int positionY) coordinateEnd)
         {
-            LightGrid.Where(x => x.Coordinate.PositionX == coordinate.positionX && x.Coordinate.PositionY == coordinate.positionX)
+            LightGrid.Where(x => x.Coordinate.PositionX >= coordinateStart.positionX && x.Coordinate.PositionX <= coordinateEnd.positionX
+                    && x.Coordinate.PositionY >= coordinateStart.positionY && x.Coordinate.PositionY <= coordinateEnd.positionY)
                 .ToList()
                 .ForEach(x => x.ToggleLight());
         }

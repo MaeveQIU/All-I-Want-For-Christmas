@@ -45,5 +45,7 @@ namespace ChristmasLight
         public static void Toggle((int positionX, int positionY) coordinateStart,
             (int positionX, int positionY) coordinateEnd) =>
             FindLights(coordinateStart, coordinateEnd).ForEach(x => x.ToggleLight());
+
+        public static int CountLightsOnNumber() => LightGrid.Where(x => x.IsOn).ToList().Count;
     }
 }
